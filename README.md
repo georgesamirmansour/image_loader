@@ -3,8 +3,8 @@
 Image loader is a helper library to load image from many resources as[assets, file or cache Network image].
   With support with making shape around it as circle or rounded corners
 
-<img src="https://github.com/georgesamirmansour/image_loader/tree/master/screenShot/1.png?raw=true" width="250" height="500">
-<img src="https://github.com/georgesamirmansour/image_loader/tree/master/screenShot/2.png?raw=true" width="250" height="500">
+<img src="https://github.com/georgesamirmansour/image_loader/blob/master/screenShot/1.png?raw=true" width="250" height="500">
+<img src="https://github.com/georgesamirmansour/image_loader/blob/master/screenShot/2.png?raw=true" width="250" height="500">
 
 
 
