@@ -199,6 +199,7 @@ class ImageHelper extends StatelessWidget {
         height: height,
         filterQuality: filterQuality,
         colorBlendMode: blendMode,
+        color: color,
         scale: scale,
         errorBuilder: (context, error, stackTrace) => _errorBuilder,
       );

@@ -2,7 +2,7 @@ name: image_loader
 description: Image loader is a helper library to load image from many resorces as[assets, file or network with cach].
   With support with making shape around it as circle or rounded corners
 homepage: https://github.com/georgesamirmansour/image_loader.git
-version: 1.0.0
+version: 1.0.1
 
 environment:
   sdk: ">=2.13.0 <3.0.0"
