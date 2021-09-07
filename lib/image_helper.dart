@@ -2,8 +2,9 @@ import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-enum ImageType { asset, file, network }
+enum ImageType { asset, file, network, svg, networkSvg }
 enum ImageShape { circle, rectangle, oval, none }
 
 class ImageHelper extends StatelessWidget {
@@ -162,8 +163,30 @@ class ImageHelper extends StatelessWidget {
         return _file;
       case ImageType.network:
         return _cached;
+      case ImageType.svg:
+        return _svgLocalIcon;
+      case ImageType.networkSvg:
+        return _svgNetworkIcon;
     }
   }
+
+  Widget get _svgLocalIcon => SvgPicture.asset(
+        image,
+        height: height,
+        width: width,
+        color: color,
+        fit: boxFit!,
+        placeholderBuilder: (context) => _errorBuilder,
+      );
+
+  Widget get _svgNetworkIcon => SvgPicture.network(
+        image,
+        height: height,
+        width: width,
+        color: color,
+        fit: boxFit!,
+        placeholderBuilder: (context) => _loaderBuilder,
+      );
 
   Widget get _file => Image.file(File(image),
       color: color,

@@ -24,7 +24,7 @@ ImageHelper(
               borderRadius: BorderRadius.all(Radius.circular(30.0)),
               // alignment of image
               alignment: Alignment.center,
-              // indicates where image will be loaded from, types are [network, asset,file]
+              // indicates where image will be loaded from, types are [network, asset,file, svg, networkSvg]
               imageType: ImageType.network,
               // indicates what shape you would like to be with image [rectangle, oval,circle or none]
               imageShape: ImageShape.rectangle,
