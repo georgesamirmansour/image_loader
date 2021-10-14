@@ -175,7 +175,9 @@ class ImageHelper extends StatelessWidget {
         height: height,
         width: width,
         color: color,
-        fit: boxFit!,
+        colorBlendMode: blendMode,
+        fit: boxFit == null ? BoxFit.contain : boxFit!,
+        alignment: alignment,
         placeholderBuilder: (context) => _errorBuilder,
       );
 
@@ -184,7 +186,10 @@ class ImageHelper extends StatelessWidget {
         height: height,
         width: width,
         color: color,
-        fit: boxFit!,
+        colorBlendMode: blendMode,
+        fit: boxFit == null ? BoxFit.contain : boxFit!,
+        alignment: alignment,
+
         placeholderBuilder: (context) => _loaderBuilder,
       );
 

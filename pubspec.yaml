@@ -2,16 +2,16 @@ name: image_loader
 description: Image loader is a helper library to load image from many resorces as[assets, file or network with cach].
   With support with making shape around it as circle or rounded corners
 homepage: https://github.com/georgesamirmansour/image_loader.git
-version: 1.0.2
+version: 1.0.3
 
 environment:
-  sdk: ">=2.13.0 <3.0.0"
+  sdk: ">=2.14.2 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  cached_network_image: ^3.0.0
-  flutter_svg: ^0.22.0
+  cached_network_image: ^3.1.0
+  flutter_svg: ^0.23.0+1
 
 dev_dependencies:
   flutter_test:
