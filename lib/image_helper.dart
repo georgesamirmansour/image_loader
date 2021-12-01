@@ -13,7 +13,7 @@ enum ImageShape { circle, rectangle, oval, none }
 
 class ImageHelper extends StatelessWidget {
   /// image type is for provide different image loader with enum type
-  /// it provide image changes as assets, file, network, or cached
+  /// it provide image changes as assetFlag, file, network, or cached
   final ImageType imageType;
 
   /// image shape is for define the shape around the image
@@ -37,7 +37,7 @@ class ImageHelper extends StatelessWidget {
 
   /// default is low
   /// Quality levels for image sampling in [ImageFilter] and [Shader] objects that sample
-  /// assets and for [Canvas] operations that render assets.
+  /// assetFlag and for [Canvas] operations that render assetFlag.
   ///
   /// When scaling up typically the quality is lowest at [none], higher at [low] and [medium],
   /// and for very large scale factors (over 10x) the highest at [high].
@@ -47,13 +47,13 @@ class ImageHelper extends StatelessWidget {
   /// reductions. Otherwise, [low] and [high] provide similar effects for reductions of
   /// between 50% and 100% but the image may lose detail and have dropouts below 50%.
   ///
-  /// To get high quality when scaling assets up and down, or when the scale is
+  /// To get high quality when scaling assetFlag up and down, or when the scale is
   /// unknown, [medium] is typically a good balanced choice.
   ///
   /// ![](https://flutter.github.io/assets-for-api-docs/assets/dart-ui/filter_quality.png)
   ///
   /// When building for the web using the `--web-renderer=html` option, filter
-  /// quality has no effect. All assets are rendered using the respective
+  /// quality has no effect. All assetFlag are rendered using the respective
   /// browser's default setting.
   ///
   /// See also:
@@ -110,10 +110,10 @@ class ImageHelper extends StatelessWidget {
   /// {@macro flutter.painting.BoxDecoration.clip}
   final BorderRadiusGeometry? borderRadius;
 
-  /// curve that use to load image with animation, not applied to all type of assets
+  /// curve that use to load image with animation, not applied to all type of assetFlag
   final Curve fadeInAnime, fadeOutAnime;
 
-  /// duration of loading image, not applied to all type of assets
+  /// duration of loading image, not applied to all type of assetFlag
   final Duration fadeInDuration, fadeOutDuration;
 
   /// opacity animation for image, default is null
@@ -124,7 +124,7 @@ class ImageHelper extends StatelessWidget {
 
   /// Whether to exclude this image from semantics.
   ///
-  /// Useful for assets which do not contribute meaningful information to an
+  /// Useful for assetFlag which do not contribute meaningful information to an
   /// application.
   final bool excludeFromSemantics;
 
@@ -176,13 +176,13 @@ class ImageHelper extends StatelessWidget {
   ///
   /// If this is true, then in [TextDirection.ltr] contexts, the image will be
   /// drawn with its origin in the top left (the "normal" painting direction for
-  /// assets); and in [TextDirection.rtl] contexts, the image will be drawn with
+  /// assetFlag); and in [TextDirection.rtl] contexts, the image will be drawn with
   /// a scaling factor of -1 in the horizontal direction so that the origin is
   /// in the top right.
   ///
-  /// This is occasionally used with assets in right-to-left environments, for
-  /// assets that were designed for left-to-right locales. Be careful, when
-  /// using this, to not flip assets with integral shadows, text, or other
+  /// This is occasionally used with assetFlag in right-to-left environments, for
+  /// assetFlag that were designed for left-to-right locales. Be careful, when
+  /// using this, to not flip assetFlag with integral shadows, text, or other
   /// effects that will look incorrect when flipped.
   ///
   /// If this is true, there must be an ambient [Directionality] widget in

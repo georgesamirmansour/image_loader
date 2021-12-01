@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-const String _noImageFound = 'packages/image_loader/assets/noImageFound.svg';
+const String _noImageFound = 'packages/image_loader/assetFlag/noImageFound.svg';
 
 class DefaultErrorWidget extends StatelessWidget {
   final Color? color;

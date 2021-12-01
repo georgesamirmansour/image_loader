@@ -1,8 +1,8 @@
 name: image_loader
-description: Image loader is a helper library to load image from many resorces as[assets, file or network with cach].
+description: Image loader is a helper library to load image from many resorces as[assetFlag, file or network with cach].
   With support with making shape around it as circle or rounded corners
 homepage: https://github.com/georgesamirmansour/image_loader.git
-version: 1.0.4
+version: 1.0.7
 
 environment:
   sdk: ">=2.14.2 <3.0.0"
@@ -20,5 +20,6 @@ flutter:
   uses-material-design: true
 
   assets:
-    - packages/image_loader/assets/
+    - assetFlag/
+    - packages/image_loader/assetFlag/
 

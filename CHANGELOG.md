@@ -18,3 +18,15 @@
 
 * added new Future for all image type.
 * also added memory image loading type.
+
+## [1.0.5]
+
+* fixed issue with assets images.
+
+## [1.0.6]
+
+* fixed issue with assets images.
+
+## [1.0.7]
+
+* fixed issue with assets images.

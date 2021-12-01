@@ -24,7 +24,7 @@ ImageHelper(
               borderRadius: BorderRadius.all(Radius.circular(30.0)),
               // alignment of image
               alignment: Alignment.center,
-              // indicates where image will be loaded from, types are [network, assets,file, svg, networkSvg]
+              // indicates where image will be loaded from, types are [network, assetFlag,file, svg, networkSvg]
               imageType: ImageType.network,
               // indicates what shape you would like to be with image [rectangle, oval,circle or none]
               imageShape: ImageShape.rectangle,
@@ -32,7 +32,7 @@ ImageHelper(
               boxFit: BoxFit.fill,
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
-              // imagePath: 'assets/assets/image.png',
+              // imagePath: 'assetFlag/assetFlag/image.png',
               // default loader color, default value is null
               defaultLoaderColor: Colors.red,
               // default error builder color, default value is null
