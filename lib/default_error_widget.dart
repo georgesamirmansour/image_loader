@@ -29,17 +29,19 @@ class DefaultErrorWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) => _defaultErrorBuilder;
 
-  Widget get _defaultErrorBuilder => SvgPicture.asset(
-        _noImageFound,
-        height: _imageNotFoundHeight,
-        width: _imageNotFoundWidth,
-        color: color,
-        colorBlendMode: blendMode,
-        fit: boxFit,
-        alignment: alignment,
-        excludeFromSemantics: excludeFromSemantics,
-        matchTextDirection: matchTextDirection,
-        semanticsLabel: semanticLabel,
+  Widget get _defaultErrorBuilder => Center(
+        child: SvgPicture.asset(
+          _noImageFound,
+          height: _imageNotFoundHeight,
+          width: _imageNotFoundWidth,
+          color: color,
+          colorBlendMode: blendMode,
+          fit: boxFit,
+          alignment: alignment,
+          excludeFromSemantics: excludeFromSemantics,
+          matchTextDirection: matchTextDirection,
+          semanticsLabel: semanticLabel,
+        ),
       );
 
   double get _imageNotFoundHeight => height != null ? height! / 2 : 30.0;

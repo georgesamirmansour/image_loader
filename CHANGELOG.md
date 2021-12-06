@@ -30,3 +30,7 @@
 ## [1.0.7]
 
 * fixed issue with assets images.
+
+## [1.0.8]
+
+* added gif support as network, memory and asset.

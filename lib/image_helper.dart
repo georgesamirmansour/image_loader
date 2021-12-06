@@ -5,10 +5,21 @@ import 'dart:typed_data';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gif_view/gif_view.dart';
 
 import 'default_error_widget.dart';
 
-enum ImageType { asset, file, network, svg, networkSvg, memory }
+enum ImageType {
+  asset,
+  file,
+  network,
+  svg,
+  networkSvg,
+  memory,
+  gifAsset,
+  gifMemory,
+  GifNetwork
+}
 enum ImageShape { circle, rectangle, oval, none }
 
 class ImageHelper extends StatelessWidget {
@@ -195,6 +206,9 @@ class ImageHelper extends StatelessWidget {
   /// VoiceOver on iOS.
   final String? semanticLabel;
 
+  /// used for gif image frame rate of image loading
+  final int? frameRate;
+
   ImageHelper(
       {required this.image,
       required this.imageType,
@@ -223,7 +237,8 @@ class ImageHelper extends StatelessWidget {
       this.gaplessPlayback = false,
       this.isAntiAlias = false,
       this.matchTextDirection = false,
-      this.semanticLabel});
+      this.semanticLabel,
+      this.frameRate = 15});
 
   @override
   Widget build(BuildContext context) {
@@ -240,21 +255,21 @@ class ImageHelper extends StatelessWidget {
   }
 
   Widget get _rounded => Container(
-    child: _loadImage,
-    clipBehavior: Clip.antiAlias,
-    decoration: BoxDecoration(borderRadius: borderRadius),
-  );
+        child: _loadImage,
+        clipBehavior: Clip.antiAlias,
+        decoration: BoxDecoration(borderRadius: borderRadius),
+      );
 
   Widget get _circle => Container(
-    child: _loadImage,
-    clipBehavior: Clip.antiAlias,
-    decoration: BoxDecoration(shape: BoxShape.circle),
-  );
+        child: _loadImage,
+        clipBehavior: Clip.antiAlias,
+        decoration: BoxDecoration(shape: BoxShape.circle),
+      );
 
   Widget get _oval => ClipOval(
-    child: _loadImage,
-    clipBehavior: Clip.antiAlias,
-  );
+        child: _loadImage,
+        clipBehavior: Clip.antiAlias,
+      );
 
   Widget get _loadImage {
     switch (imageType) {
@@ -270,6 +285,12 @@ class ImageHelper extends StatelessWidget {
         return _svgNetworkIcon;
       case ImageType.memory:
         return memoryImage;
+      case ImageType.gifAsset:
+        return _gifAsset;
+      case ImageType.gifMemory:
+        return _gifMemory;
+      case ImageType.GifNetwork:
+        return _gifNetwork;
     }
   }
 
@@ -385,6 +406,59 @@ class ImageHelper extends StatelessWidget {
         repeat: imageRepeat,
       );
 
+  Widget get _gifMemory => GifView.memory(
+        Uint8List.fromList(_gifCodeUnite),
+        width: width,
+        height: height,
+        color: color,
+        centerSlice: centerSlice,
+        matchTextDirection: matchTextDirection,
+        fit: boxFit,
+        alignment: alignment,
+        repeat: imageRepeat,
+        colorBlendMode: blendMode,
+        filterQuality: filterQuality,
+        progress: _loaderBuilder,
+        isAntiAlias: isAntiAlias,
+        frameRate: frameRate ?? 15,
+      );
+
+  Widget get _gifAsset => GifView.asset(
+        image,
+        width: width,
+        height: height,
+        color: color,
+        centerSlice: centerSlice,
+        matchTextDirection: matchTextDirection,
+        fit: boxFit,
+        alignment: alignment,
+        repeat: imageRepeat,
+        colorBlendMode: blendMode,
+        filterQuality: filterQuality,
+        progress: _loaderBuilder,
+        isAntiAlias: isAntiAlias,
+        frameRate: frameRate ?? 15,
+      );
+
+  Widget get _gifNetwork => GifView.network(
+        image,
+        width: width,
+        height: height,
+        color: color,
+        centerSlice: centerSlice,
+        matchTextDirection: matchTextDirection,
+        fit: boxFit,
+        alignment: alignment,
+        repeat: imageRepeat,
+        colorBlendMode: blendMode,
+        filterQuality: filterQuality,
+        progress: _loaderBuilder,
+        isAntiAlias: isAntiAlias,
+        frameRate: frameRate ?? 15,
+      );
+
+  List<int> get _gifCodeUnite => image.codeUnits;
+
   Uint8List dataFromBase64String(String base64String) {
     return base64Decode(base64String);
   }
@@ -425,11 +499,11 @@ class ImageHelper extends StatelessWidget {
       ? width! > 100
           ? 50.0
           : 30.0
-          : 30.0;
+      : 30.0;
 
   double get _loaderHeight => height != null
       ? height! > 100
-      ? 50.0
-      : 30.0
+          ? 50.0
+          : 30.0
       : 30.0;
 }
