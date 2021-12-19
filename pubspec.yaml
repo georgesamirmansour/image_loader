@@ -5,7 +5,7 @@ homepage: https://github.com/georgesamirmansour/image_loader.git
 version: 1.0.9
 
 environment:
-  sdk: ">=2.14.2 <3.0.0"
+  sdk: ">=2.15.0 <3.0.0"
 
 dependencies:
   flutter:
