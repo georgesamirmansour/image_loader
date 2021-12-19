@@ -42,3 +42,7 @@
 ## [1.1.0]
 
 * added BoxBorder to all image expect oval.
+
+## [1.2.0]
+
+* added BoxBorder to all image expect oval.

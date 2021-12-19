@@ -209,11 +209,8 @@ class ImageHelper extends StatelessWidget {
   /// used for gif image frame rate of image loading
   final int? frameRate;
 
-  /// border surrounded image width
-  final double borderWidth;
-
-  /// boder color surrounded image
-  final Color borderColor;
+  /// box border surounded image
+  final BoxBorder? boxBorder;
 
   ImageHelper(
       {required this.image,
@@ -245,8 +242,7 @@ class ImageHelper extends StatelessWidget {
       this.matchTextDirection = false,
       this.semanticLabel,
       this.frameRate = 15,
-      this.borderColor = const Color(0xFF000000),
-      this.borderWidth = 0});
+      this.boxBorder});
 
   @override
   Widget build(BuildContext context) {
@@ -263,25 +259,24 @@ class ImageHelper extends StatelessWidget {
   }
 
   Widget get _rounded => Container(
-        child: Padding(
-          child: _loadImage,
-          padding: EdgeInsets.all(borderWidth),
-        ),
         clipBehavior: Clip.antiAlias,
-        decoration: BoxDecoration(
-            borderRadius: borderRadius,
-            border: Border.all(width: borderWidth, color: borderColor)),
+        decoration:
+            BoxDecoration(borderRadius: borderRadius, border: boxBorder),
+        child: Container(
+            child: _loadImage,
+            clipBehavior: Clip.antiAlias,
+            decoration: BoxDecoration(borderRadius: borderRadius)),
       );
 
   Widget get _circle => Container(
-        child: Padding(
-          child: _loadImage,
-          padding: EdgeInsets.all(borderWidth),
-        ),
-        clipBehavior: Clip.antiAlias,
+    clipBehavior: Clip.antiAlias,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          border: Border.all(width: borderWidth, color: borderColor),
+        ),
+        child: Container(
+          child: _loadImage,
+          clipBehavior: Clip.antiAlias,
+          decoration: BoxDecoration(shape: BoxShape.circle, border: boxBorder),
         ),
       );
 
