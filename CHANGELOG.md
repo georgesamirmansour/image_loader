@@ -34,3 +34,7 @@
 ## [1.0.8]
 
 * added gif support as network, memory and asset.
+
+## [1.0.9]
+
+* added BoxBorder to all image expect oval.

@@ -209,6 +209,8 @@ class ImageHelper extends StatelessWidget {
   /// used for gif image frame rate of image loading
   final int? frameRate;
 
+  final BoxBorder? boxBorder;
+
   ImageHelper(
       {required this.image,
       required this.imageType,
@@ -238,7 +240,8 @@ class ImageHelper extends StatelessWidget {
       this.isAntiAlias = false,
       this.matchTextDirection = false,
       this.semanticLabel,
-      this.frameRate = 15});
+      this.frameRate = 15,
+      this.boxBorder});
 
   @override
   Widget build(BuildContext context) {
@@ -255,15 +258,19 @@ class ImageHelper extends StatelessWidget {
   }
 
   Widget get _rounded => Container(
-        child: _loadImage,
+    child: _loadImage,
         clipBehavior: Clip.antiAlias,
-        decoration: BoxDecoration(borderRadius: borderRadius),
+        decoration:
+            BoxDecoration(borderRadius: borderRadius, border: boxBorder),
       );
 
   Widget get _circle => Container(
-        child: _loadImage,
+    child: _loadImage,
         clipBehavior: Clip.antiAlias,
-        decoration: BoxDecoration(shape: BoxShape.circle),
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          border: boxBorder,
+        ),
       );
 
   Widget get _oval => ClipOval(
