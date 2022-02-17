@@ -6,6 +6,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gif_view/gif_view.dart';
+import 'package:lottie/lottie.dart';
 
 import 'default_error_widget.dart';
 
@@ -18,7 +19,11 @@ enum ImageType {
   memory,
   gifAsset,
   gifMemory,
-  GifNetwork
+  GifNetwork,
+  JsonAsset,
+  JsonFile,
+  JsonNetwork,
+  JsonMemory,
 }
 enum ImageShape { circle, rectangle, oval, none }
 
@@ -264,7 +269,7 @@ class ImageHelper extends StatelessWidget {
             BoxDecoration(borderRadius: borderRadius, border: boxBorder),
         child: Container(
             child: _loadImage,
-            clipBehavior: Clip.antiAlias,
+            clipBehavior: Clip.hardEdge,
             decoration: BoxDecoration(borderRadius: borderRadius)),
       );
 
@@ -305,6 +310,14 @@ class ImageHelper extends StatelessWidget {
         return _gifMemory;
       case ImageType.GifNetwork:
         return _gifNetwork;
+      case ImageType.JsonAsset:
+        return _jsonAsset;
+      case ImageType.JsonFile:
+        return _jsonFile;
+      case ImageType.JsonNetwork:
+        return _jsonNetwork;
+      case ImageType.JsonMemory:
+        return _jsonMemory;
     }
   }
 
@@ -470,6 +483,38 @@ class ImageHelper extends StatelessWidget {
         isAntiAlias: isAntiAlias,
         frameRate: frameRate ?? 15,
       );
+
+  Widget get _jsonAsset => Lottie.asset(image,
+      width: width,
+      alignment: alignment,
+      errorBuilder: (context, error, stackTrace) => _errorBuilder,
+      repeat: true,
+      fit: boxFit,
+      height: height);
+
+  Widget get _jsonNetwork => Lottie.network(image,
+      width: width,
+      alignment: alignment,
+      errorBuilder: (context, error, stackTrace) => _errorBuilder,
+      repeat: true,
+      fit: boxFit,
+      height: height);
+
+  Widget get _jsonMemory => Lottie.memory(dataFromBase64String(image),
+      width: width,
+      alignment: alignment,
+      errorBuilder: (context, error, stackTrace) => _errorBuilder,
+      repeat: true,
+      fit: boxFit,
+      height: height);
+
+  Widget get _jsonFile => Lottie.file(image,
+      width: width,
+      alignment: alignment,
+      errorBuilder: (context, error, stackTrace) => _errorBuilder,
+      repeat: true,
+      fit: boxFit,
+      height: height);
 
   List<int> get _gifCodeUnite => image.codeUnits;
 

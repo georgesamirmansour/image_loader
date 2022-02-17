@@ -46,3 +46,7 @@
 ## [1.2.0]
 
 * added BoxBorder to all image expect oval.
+
+## [1.3.0]
+
+* added support for animated json image [JsonAsset, JsonFile, JsonNetwork, JsonMemory].
