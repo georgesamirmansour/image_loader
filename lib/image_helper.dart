@@ -347,6 +347,8 @@ class ImageHelper extends StatelessWidget {
   Widget get _cached => CachedNetworkImage(
         imageUrl: image,
         color: color,
+        useOldImageOnUrlChange: false,
+        placeholderFadeInDuration: fadeInDuration,
         colorBlendMode: blendMode,
         filterQuality: filterQuality,
         height: height,

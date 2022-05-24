@@ -50,3 +50,15 @@
 ## [1.3.0]
 
 * added support for animated json image [JsonAsset, JsonFile, JsonNetwork, JsonMemory].
+
+## [1.4.0]
+
+* added support for animated json image [JsonAsset, JsonFile, JsonNetwork, JsonMemory].
+
+## [1.5.0]
+
+* added support for animated json image [JsonAsset, JsonFile, JsonNetwork, JsonMemory].
+
+## [1.6.0]
+
+* update dependency.
