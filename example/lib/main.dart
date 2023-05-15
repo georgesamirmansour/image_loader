@@ -87,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Expanded(
             child: ImageHelper(
-              image: networkImageUrl,
+              image: '',
               // image scale
               scale: 1.0,
               // Quality levels for image sampling in [ImageFilter] and [Shader] objects that sample
