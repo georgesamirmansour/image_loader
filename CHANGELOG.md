@@ -62,3 +62,7 @@
 ## [1.6.0]
 
 * update dependency.
+
+## [1.7.0]
+
+* update dependency.
