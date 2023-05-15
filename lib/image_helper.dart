@@ -25,6 +25,7 @@ enum ImageType {
   JsonNetwork,
   JsonMemory,
 }
+
 enum ImageShape { circle, rectangle, oval, none }
 
 class ImageHelper extends StatelessWidget {
@@ -274,7 +275,7 @@ class ImageHelper extends StatelessWidget {
       );
 
   Widget get _circle => Container(
-    clipBehavior: Clip.antiAlias,
+        clipBehavior: Clip.antiAlias,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
         ),
@@ -390,8 +391,7 @@ class ImageHelper extends StatelessWidget {
         image,
         height: height,
         width: width,
-        color: color,
-        colorBlendMode: blendMode,
+        colorFilter: color == null ? null : ColorFilter.mode(color!, blendMode),
         fit: boxFit,
         alignment: alignment,
         placeholderBuilder: (context) => _errorBuilder,
@@ -404,8 +404,7 @@ class ImageHelper extends StatelessWidget {
         image,
         height: height,
         width: width,
-        color: color,
-        colorBlendMode: blendMode,
+        colorFilter: color == null ? null : ColorFilter.mode(color!, blendMode),
         fit: boxFit,
         alignment: alignment,
         placeholderBuilder: (context) => _loaderBuilder,
