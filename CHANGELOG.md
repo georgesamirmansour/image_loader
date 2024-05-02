@@ -74,3 +74,7 @@
 ## [1.9.0]
 
 * update dependency.
+
+## [1.10.0]
+
+* update dependency.

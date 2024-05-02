@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -509,7 +508,7 @@ class ImageHelper extends StatelessWidget {
       fit: boxFit,
       height: height);
 
-  Widget get _jsonFile => Lottie.file(image,
+  Widget get _jsonFile => Lottie.file(File(image),
       width: width,
       alignment: alignment,
       errorBuilder: (context, error, stackTrace) => _errorBuilder,
